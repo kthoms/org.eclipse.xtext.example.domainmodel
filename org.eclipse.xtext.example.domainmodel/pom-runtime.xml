@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>p2.osgi.bundle</groupId>
+		<artifactId>org.xtext.example.domainmodel.parent</artifactId>
+		<version>2.0.0-SNAPSHOT</version>
+	</parent>
+	<groupId>p2.osgi.bundle</groupId>
+	<artifactId>org.xtext.example.domainmodel</artifactId>
+	<packaging>eclipse-plugin</packaging>
+	<name>org.xtext.example.domainmodel - Runtime</name>
+
+	<properties>
+		<platform-version-name>indigo</platform-version-name>
+	</properties>
+
+	<modules>
+	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<echo>**********************Hello</echo>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipselabs.xtext.utils</groupId>
+				<artifactId>xtext-maven-plugin</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+				<configuration>
+					<executions>
+						<execution>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+						</execution>
+					</executions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>src-gen</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+							<excludes>
+								<exclude>.gitignore</exclude>
+							</excludes>
+						</fileset>
+						<fileset>
+							<directory>xtend-gen</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+							<excludes>
+								<exclude>.gitignore</exclude>
+							</excludes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<!-- <plugin> <groupId>org.fornax.toolsupport</groupId> <artifactId>fornax-oaw-m2-plugin</artifactId> 
+				<configuration> <workflowDescriptor>org.eclipse.xtext.example.domainmodel.GenerateDomainmodelLanguage</workflowDescriptor> 
+				<jvmSettings> <fork>true</fork> <jvmArgs> <jvmArg>-Xms100m</jvmArg> <jvmArg>-Xmx700m</jvmArg> 
+				<jvmArg>-XX:MaxPermSize=128m</jvmArg> <jvmArg>-Dlog4j.configuration=${basedir}/log4j.properties</jvmArg> 
+				</jvmArgs> </jvmSettings> </configuration> </plugin> -->
+		</plugins>
+	</build>
+</project>
