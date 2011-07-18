@@ -20,38 +20,23 @@
 	</modules>
 	<build>
 		<plugins>
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.6</version>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<configuration>
-							<target>
-								<echo>**********************Hello</echo>
-							</target>
-						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+			<!-- 
 			<plugin>
 				<groupId>org.eclipselabs.xtext.utils</groupId>
-				<artifactId>xtext-maven-plugin</artifactId>
+				<artifactId>xtend-maven-plugin</artifactId>
 				<version>1.0.0-SNAPSHOT</version>
 				<configuration>
+				</configuration>
 					<executions>
 						<execution>
 							<phase>generate-sources</phase>
 							<goals>
-								<goal>run</goal>
+							<goal>compile</goal>
 							</goals>
 						</execution>
 					</executions>
-				</configuration>
 			</plugin>
+			 -->
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
 				<configuration>
@@ -77,11 +62,45 @@
 					</filesets>
 				</configuration>
 			</plugin>
-			<!-- <plugin> <groupId>org.fornax.toolsupport</groupId> <artifactId>fornax-oaw-m2-plugin</artifactId> 
-				<configuration> <workflowDescriptor>org.eclipse.xtext.example.domainmodel.GenerateDomainmodelLanguage</workflowDescriptor> 
-				<jvmSettings> <fork>true</fork> <jvmArgs> <jvmArg>-Xms100m</jvmArg> <jvmArg>-Xmx700m</jvmArg> 
-				<jvmArg>-XX:MaxPermSize=128m</jvmArg> <jvmArg>-Dlog4j.configuration=${basedir}/log4j.properties</jvmArg> 
-				</jvmArgs> </jvmSettings> </configuration> </plugin> -->
+			<plugin>
+				<groupId>org.fornax.toolsupport</groupId>
+				<artifactId>fornax-oaw-m2-plugin</artifactId>
+				<version>3.3.0-SNAPSHOT</version>
+				<executions>
+					<!-- 
+					<execution>
+						<id>xtext</id>
+						<configuration>
+							<workflowDescriptor>org.eclipse.xtext.example.domainmodel.GenerateDomainmodelLanguage</workflowDescriptor>
+							<timestampFileName>xtext-generator.timestamp</timestampFileName>
+						</configuration>
+					</execution>
+					 -->
+					<execution>
+						<id>xtend</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>run-workflow</goal>
+						</goals>
+						<configuration>
+							<workflowDescriptor>org.eclipselabs.xtext.xtend2.compiler.CompilerWorkflow</workflowDescriptor>
+							<timestampFileName>xtend-generator.timestamp</timestampFileName>
+							<jvmSettings>
+								<fork>true</fork>
+								<jvmArgs>
+									<jvmArg>-Xms100m</jvmArg>
+									<jvmArg>-Xmx700m</jvmArg>
+									<jvmArg>-XX:MaxPermSize=128m</jvmArg>
+									<jvmArg>-Dlog4j.configuration=file:${basedir}/log4j.properties</jvmArg>
+								</jvmArgs>
+							</jvmSettings>
+							<properties>
+								<targetDir>${project.build.directory}/generated/xtend</targetDir>
+							</properties>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>

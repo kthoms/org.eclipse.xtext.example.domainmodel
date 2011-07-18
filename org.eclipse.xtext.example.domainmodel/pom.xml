@@ -19,6 +19,7 @@
 
 	<modules>
 		<module>pom-runtime.xml</module>
+		<module>../org.eclipselabs.xtext.xtend2</module>
 	</modules>
 	<build>
 		<!-- The src directory must be named as resource dir to put it on the build 
@@ -64,6 +65,7 @@
 					<groupId>org.fornax.toolsupport</groupId>
 					<artifactId>fornax-oaw-m2-plugin</artifactId>
 					<version>3.2.3</version>
+					<!-- 
 					<configuration>
 						<workflowEngine>mwe2</workflowEngine>
 						<jvmSettings>
@@ -71,7 +73,7 @@
 							<jvmArgs>
 								<jvmArg>-Xms100m</jvmArg>
 								<jvmArg>-Xmx700m</jvmArg>
-								<jvmArg>-XX:MaxPermSize=192m</jvmArg>
+								<jvmArg>-XX:MaxPermSize=128m</jvmArg>
 							</jvmArgs>
 						</jvmSettings>
 					</configuration>
@@ -83,7 +85,9 @@
 							</goals>
 						</execution>
 					</executions>
+					 -->
 				</plugin>
+				<!-- 
 				<plugin>
 					<groupId>org.eclipselabs.xtext.utils</groupId>
 					<artifactId>xtext-maven-plugin</artifactId>
@@ -93,12 +97,10 @@
 					<executions>
 						<execution>
 							<phase>process-sources</phase>
-							<goals>
-								<goal>compile</goal>
-							</goals>
 						</execution>
 					</executions>
 				</plugin>
+				 -->
 			</plugins>
 		</pluginManagement>
 	</build>

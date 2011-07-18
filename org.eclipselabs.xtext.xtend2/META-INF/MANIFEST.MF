@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Xtend
+Bundle-SymbolicName: org.eclipselabs.xtext.xtend2
+Bundle-Version: 2.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.xtext.xtend2;bundle-version="2.0.0",
+ org.eclipse.emf.mwe.core;bundle-version="1.1.0",
+ org.eclipse.emf.mwe.utils;bundle-version="1.1.0",
+ org.eclipse.xtext;bundle-version="2.0.0",
+ org.eclipse.jdt.core;bundle-version="[3.5.0,4.0.0)";visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
