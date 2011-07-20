@@ -1,0 +1,23 @@
+module org.eclipse.xtext.examples.domainmodel.Xtend2
+
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.xtext.mwe.*
+
+var platformUri = ".."
+
+Workflow {
+
+	bean = StandaloneSetup {
+		platformUri = "${platformUri}"
+	}
+
+	component = org.eclipse.xtext.mwe.Reader {
+		path = "bin"
+		register = org.eclipse.xtext.xtend2.Xtend2StandaloneSetup {}
+		load = SlotEntry {
+			type = "XtendFile"
+			slot = "xtend"
+		}
+	}
+	
+}
