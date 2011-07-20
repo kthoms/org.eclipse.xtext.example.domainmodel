@@ -5,7 +5,6 @@ import org.eclipse.xtext.mwe.*
 
 var platformUri = ".."
 var targetDir
-var modelPath
 
 Workflow {
 
@@ -14,11 +13,10 @@ Workflow {
 	}
 
 	component = org.eclipse.xtext.mwe.Reader {
-		path = modelPath
+		path = "bin"
 		register = org.eclipse.xtext.xtend2.Xtend2StandaloneSetup {}
 		load = SlotEntry {
-			type = "XtendFile"
-			slot = "xtend"
+			type = "XtendClass"
 		}
 	}
 	

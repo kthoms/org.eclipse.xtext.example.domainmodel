@@ -9,11 +9,12 @@
 	</parent>
 	<groupId>p2.osgi.bundle</groupId>
 	<artifactId>org.xtext.example.domainmodel.parent</artifactId>
-	<version>2.0.0-SNAPSHOT</version>
+	<version>2.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>org.xtext.example.domainmodel - Parent</name>
 
 	<properties>
+	    <tycho-version>0.12.0</tycho-version>
 		<platform-version-name>indigo</platform-version-name>
 	</properties>
 
@@ -114,6 +115,16 @@
 			</releases>
 			<snapshots>
 				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>sonatype</id>
+			<url>http://repository.sonatype.org/content/groups/sonatype-public-grid/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
