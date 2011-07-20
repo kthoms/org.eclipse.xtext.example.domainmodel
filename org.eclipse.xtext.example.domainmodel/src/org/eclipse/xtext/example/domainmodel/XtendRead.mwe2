@@ -12,12 +12,16 @@ Workflow {
 	}
 
 	component = org.eclipse.xtext.mwe.Reader {
-		path = "bin"
+		useJavaClassPath = true
 		register = org.eclipse.xtext.xtend2.Xtend2StandaloneSetup {}
+		uriFilter = NegatedUriFilter {
+			uriFilter = NameBasedFilter {
+				regularExpression = "archive:"
+			}
+		}
 		load = SlotEntry {
-			type = "XtendFile"
-			slot = "xtend"
+			type = "XtendClass"
 		}
 	}
-	
+    
 }
