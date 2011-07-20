@@ -5,3 +5,4 @@ org.eclipse.xtext.example.domainmodel.ui/plugin.xml_gen
 
 /org.eclipselabs.xtext.xtend2/bin/
 /org.eclipselabs.xtext.xtend2/target/
+.DS_Store
