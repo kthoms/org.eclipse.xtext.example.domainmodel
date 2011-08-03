@@ -5,23 +5,32 @@ import org.eclipse.xtext.mwe.*
 
 var platformUri = ".."
 var targetDir
+// The binary directory that contains the .xtend files
+var xtendSrcDir = "bin"
 
 Workflow {
 
-	bean = StandaloneSetup {
-		platformUri = "${platformUri}"
-	}
+	bean = StandaloneSetup auto-inject {}
 
 	component = org.eclipse.xtext.mwe.Reader {
-		path = "bin"
+		path = xtendSrcDir
 		register = org.eclipse.xtext.xtend2.Xtend2StandaloneSetup {}
-		load = SlotEntry {
-			type = "XtendClass"
+//		load = SlotEntry {
+//			type = "XtendClass"
+//			slot = "xtend"
+//		}
+		loadResource = {
+			slot = "xtend"
+			uri = ".*\\.xtend"
 		}
 	}
-	
+
+	component = DirectoryCleaner {
+		directory = targetDir
+	}
 	component = XtendCompilerComponent {
 		modelSlot = "xtend"
-		targetDir = "${targetDir}"
+		targetDir = targetDir
+		baseDir = xtendSrcDir
 	}
 }
