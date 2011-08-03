@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Xtend
+Bundle-Name: xtext-utils Xtend2
 Bundle-SymbolicName: org.eclipselabs.xtext.xtend2
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 0.9.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.xtext.xtend2;bundle-version="2.0.0",
@@ -12,3 +12,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.jdt.core;bundle-version="[3.5.0,4.0.0)";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Vendor: itemis AG
+Import-Package: org.apache.commons.logging
