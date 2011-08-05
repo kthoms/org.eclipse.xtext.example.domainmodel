@@ -7,6 +7,12 @@
 		<artifactId>minerva-parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
+
+	<!-- Tycho requires Maven 3 -->
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
 	<groupId>p2.osgi.bundle</groupId>
 	<artifactId>org.xtext.example.domainmodel.parent</artifactId>
 	<version>2.0.1-SNAPSHOT</version>
@@ -14,23 +20,19 @@
 	<name>org.xtext.example.domainmodel - Parent</name>
 
 	<properties>
-	    <tycho-version>0.12.0</tycho-version>
+		<tycho-version>0.12.0</tycho-version>
 		<platform-version-name>indigo</platform-version-name>
 	</properties>
 
 	<modules>
 		<module>pom-runtime.xml</module>
-		<module>../org.eclipselabs.xtext.xtend2</module>
+		<!-- <module>../org.eclipselabs.xtext.xtend2</module>  -->
 	</modules>
 	<build>
 		<!-- The src directory must be named as resource dir to put it on the build 
 			classpath. This is required to resolve the workflow module named in the .mwe2 
 			file -->
-		<resources>
-			<resource>
-				<directory>src</directory>
-			</resource>
-		</resources>
+		<!-- <resources> <resource> <directory>src</directory> </resource> </resources> -->
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -48,7 +50,7 @@
 								<source>src-gen</source>
 							</sources>
 							<sources>
-								<source>xtend-gen</source>
+								<source>${project.build.directory}/xtend-gen</source>
 							</sources>
 						</configuration>
 					</execution>
@@ -66,42 +68,15 @@
 					<groupId>org.fornax.toolsupport</groupId>
 					<artifactId>fornax-oaw-m2-plugin</artifactId>
 					<version>3.2.3</version>
-					<!-- 
-					<configuration>
-						<workflowEngine>mwe2</workflowEngine>
-						<jvmSettings>
-							<fork>true</fork>
-							<jvmArgs>
-								<jvmArg>-Xms100m</jvmArg>
-								<jvmArg>-Xmx700m</jvmArg>
-								<jvmArg>-XX:MaxPermSize=128m</jvmArg>
-							</jvmArgs>
-						</jvmSettings>
-					</configuration>
-					<executions>
-						<execution>
-							<phase>generate-sources</phase>
-							<goals>
-								<goal>run-workflow</goal>
-							</goals>
-						</execution>
-					</executions>
-					 -->
+					<!-- <configuration> <workflowEngine>mwe2</workflowEngine> <jvmSettings> 
+						<fork>true</fork> <jvmArgs> <jvmArg>-Xms100m</jvmArg> <jvmArg>-Xmx700m</jvmArg> 
+						<jvmArg>-XX:MaxPermSize=128m</jvmArg> </jvmArgs> </jvmSettings> </configuration> 
+						<executions> <execution> <phase>generate-sources</phase> <goals> <goal>run-workflow</goal> 
+						</goals> </execution> </executions> -->
 				</plugin>
-				<!-- 
-				<plugin>
-					<groupId>org.eclipselabs.xtext.utils</groupId>
-					<artifactId>xtext-maven-plugin</artifactId>
-					<version>1.0.0-SNAPSHOT</version>
-					<configuration>
-					</configuration>
-					<executions>
-						<execution>
-							<phase>process-sources</phase>
-						</execution>
-					</executions>
-				</plugin>
-				 -->
+				<!-- <plugin> <groupId>org.eclipselabs.xtext.utils</groupId> <artifactId>xtext-maven-plugin</artifactId> 
+					<version>1.0.0-SNAPSHOT</version> <configuration> </configuration> <executions> 
+					<execution> <phase>process-sources</phase> </execution> </executions> </plugin> -->
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -128,4 +103,20 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
+
+
+	<licenses>
+		<license>
+			<name>Eclipse Public License v1.0</name>
+			<comments>
+       All rights reserved.
+
+       This program and the accompanying materials are made
+       available under the terms of the Eclipse Public License v1.0
+       which accompanies this distribution, and is available at
+       http://www.eclipse.org/legal/epl-v10.htm
+      </comments>
+		</license>
+	</licenses>
+
 </project>

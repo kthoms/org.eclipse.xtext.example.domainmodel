@@ -1,4 +1,4 @@
-module org.eclipselabs.xtext.xtend2.compiler.CompilerWorkflow
+module org.eclipselabs.xtext.xtend2.compiler.CompilerWorkflowXXX
 
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.mwe.*
@@ -18,6 +18,10 @@ Workflow {
 		loadResource = {
 			slot = "xtend"
 			uri = ".*\\.xtend"
+		}
+		validate = Validator {
+			validateAll = false
+			stopOnError = false
 		}
 	}
 

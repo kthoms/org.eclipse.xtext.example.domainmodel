@@ -25,7 +25,7 @@ public class DomainmodelFormatter extends AbstractDeclarativeFormatter {
 	protected void configureFormatting(FormattingConfig c) {
 		DomainmodelGrammarAccess f = (DomainmodelGrammarAccess) getGrammarAccess();
 
-		c.setAutoLinewrap(120);
+		c.setAutoLinewrap(121);
 		
 		c.setLinewrap(1, 2, 3).around(f.getAbstractElementRule());
 		c.setLinewrap(1, 2, 3).around(f.getPackageDeclarationRule());
