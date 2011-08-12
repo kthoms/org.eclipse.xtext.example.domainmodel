@@ -8,3 +8,4 @@ org.eclipse.xtext.example.domainmodel.ui/plugin.xml_gen
 /org.eclipse.xtext.example.domainmodel/xtend-gen/*
 /org.eclipse.xtext.example.domainmodel.tests/xtend-gen/*
 .DS_Store
+target

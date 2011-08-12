@@ -4,17 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>p2.osgi.bundle</groupId>
-		<artifactId>org.xtext.example.domainmodel.parent</artifactId>
+		<artifactId>org.eclipse.xtext.example.domainmodel.parent</artifactId>
 		<version>2.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>p2.osgi.bundle</groupId>
-	<artifactId>org.xtext.example.domainmodel</artifactId>
+	<artifactId>org.eclipse.xtext.example.domainmodel</artifactId>
 	<packaging>eclipse-plugin</packaging>
-	<name>org.xtext.example.domainmodel - Runtime</name>
-
-	<properties>
-		<platform-version-name>indigo</platform-version-name>
-	</properties>
+	<name>org.eclipse.xtext.example.domainmodel - Runtime</name>
 
 	<modules>
 	</modules>
@@ -23,11 +19,9 @@
 			<resource>
 				<directory>${project.build.directory}/xtext</directory>
 			</resource>
-			<resource>
-				<directory>${project.build.directory}/classes</directory>
-			</resource>
 		</resources>
 		<plugins>
+			<!-- Copy all Xtext related sources to seperate folder that is registered as resource folder -->
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.5</version>
@@ -54,10 +48,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- <plugin> <groupId>org.eclipselabs.xtext.utils</groupId> <artifactId>xtend-maven-plugin</artifactId> 
-				<version>1.0.0-SNAPSHOT</version> <configuration> </configuration> <executions> 
-				<execution> <phase>generate-sources</phase> <goals> <goal>compile</goal> 
-				</goals> </execution> </executions> </plugin> -->
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
 				<configuration>
@@ -73,6 +63,33 @@
 						</fileset>
 						<fileset>
 							<directory>xtend-gen</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+							<excludes>
+								<exclude>.gitignore</exclude>
+							</excludes>
+						</fileset>
+						<fileset>
+							<directory>../${project.artifactId}.ui/src-gen</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+							<excludes>
+								<exclude>.gitignore</exclude>
+							</excludes>
+						</fileset>
+						<fileset>
+							<directory>../${project.artifactId}.ui/xtend-gen</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+							<excludes>
+								<exclude>.gitignore</exclude>
+							</excludes>
+						</fileset>
+						<fileset>
+							<directory>../${project.artifactId}.tests/src-gen</directory>
 							<includes>
 								<include>**</include>
 							</includes>
@@ -108,38 +125,7 @@
 							</jvmSettings>
 						</configuration>
 					</execution>
-					<execution>
-						<id>xtend</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>run-workflow</goal>
-						</goals>
-						<configuration>
-							<workflowDescriptor>org.eclipselabs.xtext.xtend2.compiler.CompilerWorkflow</workflowDescriptor>
-							<timestampFileName>xtend-generator.timestamp</timestampFileName>
-							<jvmSettings>
-								<fork>true</fork>
-								<jvmArgs>
-									<jvmArg>-Xms100m</jvmArg>
-									<jvmArg>-Xmx700m</jvmArg>
-									<jvmArg>-XX:MaxPermSize=128m</jvmArg>
-									<jvmArg>-Dlog4j.configuration=file:${basedir}/log4j.properties</jvmArg>
-								</jvmArgs>
-							</jvmSettings>
-							<properties>
-								<targetDir>xtend-gen</targetDir>
-								<xtendSrcDir>${project.build.directory}/xtext</xtendSrcDir>
-							</properties>
-						</configuration>
-					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-compiler-plugin</artifactId>
-				<configuration>
-					<compilerArgument>-proceedOnError</compilerArgument>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
