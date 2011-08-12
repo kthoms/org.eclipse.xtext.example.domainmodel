@@ -156,6 +156,11 @@
 			<layout>p2</layout>
 			<url>${orbit-site}</url>
 		</repository>
+		<repository>
+			<id>xtext</id>
+			<layout>p2</layout>
+			<url>http://download.itemis.com/updates/releases/2.0.0</url>
+		</repository>
 	</repositories>
 	<pluginRepositories>
 		<!-- Fornax Workflow Runner plugin -->
