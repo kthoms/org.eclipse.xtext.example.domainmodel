@@ -12,8 +12,6 @@
 	<packaging>eclipse-plugin</packaging>
 	<name>org.eclipse.xtext.example.domainmodel - Runtime</name>
 
-	<modules>
-	</modules>
 	<build>
 		<resources>
 			<resource>
@@ -62,25 +60,7 @@
 							</excludes>
 						</fileset>
 						<fileset>
-							<directory>xtend-gen</directory>
-							<includes>
-								<include>**</include>
-							</includes>
-							<excludes>
-								<exclude>.gitignore</exclude>
-							</excludes>
-						</fileset>
-						<fileset>
 							<directory>../${project.artifactId}.ui/src-gen</directory>
-							<includes>
-								<include>**</include>
-							</includes>
-							<excludes>
-								<exclude>.gitignore</exclude>
-							</excludes>
-						</fileset>
-						<fileset>
-							<directory>../${project.artifactId}.ui/xtend-gen</directory>
 							<includes>
 								<include>**</include>
 							</includes>
