@@ -23,6 +23,9 @@
 			<resource>
 				<directory>${project.build.directory}/xtext</directory>
 			</resource>
+			<resource>
+				<directory>${project.build.directory}/classes</directory>
+			</resource>
 		</resources>
 		<plugins>
 			<plugin>
